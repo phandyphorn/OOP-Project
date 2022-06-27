@@ -3,7 +3,7 @@ export enum Gender {
     MALE,
 }
 
-export class Person {
+export abstract class Person {
 
     constructor(
     protected id: number,

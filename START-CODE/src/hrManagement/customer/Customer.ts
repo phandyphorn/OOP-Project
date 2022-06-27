@@ -5,7 +5,7 @@ import { Person, Gender } from "../Person";
 export class Customer extends Person{
 
     menu?: Menu;
-    order: Order[] = [];
+    orders: Order[] = [];
 
     constructor(id: number, name: string, gender: Gender, phone:number, address:string)
     {
@@ -21,7 +21,11 @@ export class Customer extends Person{
     }
 
     orderFood(...food: Order[]) {
-        this.order = this.order.concat(...food);
+        this.orders = this.orders.concat(...food);
+    }
+
+    getOrdered(): Order[] {
+        return this.orders
     }
 
 }
