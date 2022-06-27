@@ -1,9 +1,10 @@
 import { Person, Gender } from "../Person";
+import { Staff, StaffCategory } from "./Staff";
 
-export class Chef extends Person{
+export class Chef extends Staff{
 
-    constructor(id: number, name: string, gender: Gender, phone:number, address:string, private salary:number)
+    constructor(staffCategory: StaffCategory, id: number, name: string, gender: Gender, phone:number, address:string)
     {
-        super(id, name, phone, gender, address);
+        super(StaffCategory.CHEF, id, name, phone, gender, address);
     }
 }

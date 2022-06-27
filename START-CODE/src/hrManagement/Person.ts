@@ -4,6 +4,7 @@ export enum Gender {
 }
 
 export abstract class Person {
+
     constructor(
     protected id: number,
     protected name: string,
