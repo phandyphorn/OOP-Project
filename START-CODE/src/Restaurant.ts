@@ -2,6 +2,7 @@ import { BillManagement } from "./billManagement/BillManagement";
 import { HRManagement } from "./hrManagement/HRManagement";
 import { KitchenManagement } from "./kitchenManagement/kitchenManagement";
 import { Menu } from "./menuManagement/Menu";
+import { Table } from "./tableManagement/Table";
 import { TableManagement } from "./tableManagement/TableManagement";
 
 export class Restaurant {
@@ -16,5 +17,8 @@ export class Restaurant {
         private owner: string
     ){}
 
+    
 
+
+    
 }
