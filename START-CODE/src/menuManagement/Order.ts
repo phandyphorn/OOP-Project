@@ -1,6 +1,16 @@
-import { Food } from "../kitchenManagement/Food";
+import { Customer } from "../hrManagement/customer/Customer";
+import { MenuItem } from "./MenuItem";
 
-
+export enum OrderStatus{
+    COMPLETED,
+    NOT_COMPLETED
+}
 export class Order {
-    constructor(public foods: Food, public quaility: number){}
+    public status: OrderStatus = OrderStatus.NOT_COMPLETED;
+    constructor(public food: MenuItem, public quaility: number, public customer: Customer){}
+
+    addStatus(status: OrderStatus) {
+        this.status = status;
+    }
+
 }

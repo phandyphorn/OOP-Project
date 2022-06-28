@@ -1,10 +1,10 @@
-import { Menu } from "../../menuManagement/Menu";
+import { MenuManager } from "../../menuManagement/MenuManager";
 import { Order } from "../../menuManagement/Order";
 import { Person, Gender } from "../Person";
 
 export class Customer extends Person{
 
-    menu?: Menu;
+    menu?: MenuManager;
     orders: Order[] = [];
 
     constructor(id: number, name: string, gender: Gender, phone:number, address:string)
@@ -16,7 +16,7 @@ export class Customer extends Person{
         return this.id == otherCustomer.id;
     }
 
-    addMenu(menu: Menu) {
+    addMenu(menu: MenuManager) {
         this.menu = menu;
     }
 
@@ -27,5 +27,7 @@ export class Customer extends Person{
     getOrdered(): Order[] {
         return this.orders
     }
+
+
 
 }

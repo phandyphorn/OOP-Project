@@ -1,12 +1,29 @@
-import { Food } from '../Food';
+import { ItemName } from '../../menuManagement/MenuItem';
+import { Food, FoodCategory } from '../Food';
 
 export class Drink extends Food {
     constructor (
-        name: string, 
+        name: ItemName, 
         price: number,
-        private quality: number
+        quality: number
     )
     {
-        super(name, price,);
+        super(name, price, FoodCategory.DRINK, quality);
+    }
+
+    isEqual(otherDrink: Drink) {
+        return this.name == otherDrink.name;
+    }
+
+    increaseQuality(moreQuality: number) {
+        this.quality += moreQuality;
+    }
+  
+    decreaseQuality(quality: number) {
+        this.quality -= quality;
+    }
+
+    hasThisDrink(drink: Food) {
+        return this.name == drink.name;
     }
 }

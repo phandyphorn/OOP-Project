@@ -1,14 +1,28 @@
-export class Food {
-    status?: string;
+import { ItemName } from "../menuManagement/MenuItem";
+
+export enum FoodCategory {
+    MEAL,
+    DRINK,
+    DESSERT
+} 
+
+export enum FoodStatus {
+    HAVE,
+    NOTHAVE
+}
+
+export abstract class Food {
+    status?: FoodStatus;
     constructor(
-        name: string, 
-        price: number, 
-        
+        public name: ItemName, 
+        public price: number, 
+        public foodCategory: FoodCategory,
+        public quality: number
     )
     {}
 
-    addStatus() {
-
+    addStatus(status: FoodStatus) {
+        this.status = status;
     }
 
     

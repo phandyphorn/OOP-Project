@@ -4,6 +4,10 @@ import { Customer } from "./hrManagement/customer/Customer";
 import { Food } from "./kitchenManagement/Food";
 import { Chair } from "./tableManagement/Chair";
 import { Table } from "./tableManagement/Table";
+import { Staff, StaffCategory } from "./hrManagement/staff/Staff";
+import { Dessert } from "./kitchenManagement/food/Dessert";
+import { Meal } from "./kitchenManagement/food/Meal";
+import { Drink } from "./kitchenManagement/food/Drink";
 
 
 /**
@@ -54,7 +58,5 @@ table2.addChair(chair3, chair4)
  */
 vyDyRestaurant.tables.addTable(table1, table2);
 console.log(vyDyRestaurant);
-
-
 
 

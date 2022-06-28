@@ -1,8 +1,7 @@
 import { BillManagement } from "./billManagement/BillManagement";
 import { HRManagement } from "./hrManagement/HRManagement";
 import { KitchenManagement } from "./kitchenManagement/kitchenManagement";
-import { Menu } from "./menuManagement/Menu";
-import { Table } from "./tableManagement/Table";
+import { MenuManager } from "./menuManagement/MenuManager";
 import { TableManagement } from "./tableManagement/TableManagement";
 
 export class Restaurant {
@@ -10,7 +9,7 @@ export class Restaurant {
     public humanResoure = new HRManagement();
     public bill = new BillManagement();
     public kitchen = new KitchenManagement();
-    public menu = new Menu();
+    public menu = new MenuManager();
     constructor(
         private name: string,
         private address: string,
