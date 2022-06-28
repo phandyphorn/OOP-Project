@@ -4,17 +4,17 @@ exports.Customer = void 0;
 const Person_1 = require("../Person");
 class Customer extends Person_1.Person {
     constructor(id, name, gender, phone, address) {
-        super(id, name, phone, gender, address);
-        this.order = [];
+        super(id, name, gender, phone, address);
+        this.orders = [];
     }
     isEqual(otherCustomer) {
         return this.id == otherCustomer.id;
     }
-    addMenu(menu) {
-        this.menu = menu;
-    }
     orderFood(...food) {
-        this.order = this.order.concat(...food);
+        this.orders = this.orders.concat(...food);
+    }
+    getOrdered() {
+        return this.orders;
     }
 }
 exports.Customer = Customer;

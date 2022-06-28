@@ -7,7 +7,7 @@ export class Waiter extends Staff {
 
     constructor(staffCategory: StaffCategory, id: number, name: string, gender:Gender, phone:number, address:string)
     {
-        super(StaffCategory.WAITER, id, name, phone, gender, address);
+        super(StaffCategory.WAITER, id, name, gender, phone, address);
     }
 
     takeOrder(customer: Customer, kitchen: KitchenManagement) {

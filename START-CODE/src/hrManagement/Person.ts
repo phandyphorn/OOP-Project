@@ -1,6 +1,6 @@
 export enum Gender {
-    FEMALE,
-    MALE,
+    FEMALE = "Female",
+    MALE = "Male",
 }
 
 export abstract class Person {

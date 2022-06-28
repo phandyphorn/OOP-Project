@@ -1,12 +1,13 @@
-import { Food } from '../Food';
+import { Food, FoodCategory } from '../Food';
 
 export class Dessert extends Food {
     constructor (
         name: string, 
         price: number, 
-        private quality: number
+        quality: number,
+        foodCategory: FoodCategory
     )
     {
-        super(name, price );
+        super(name, price,foodCategory, quality);
     }
 }
