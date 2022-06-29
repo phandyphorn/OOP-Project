@@ -16,7 +16,5 @@ export class MenuItem {
         return this.name == item.name && this.price == item.price && this.category == item.category;
     }
 
-    // equal(items: MenuItem) {
-    //     return this.name.
-    // }
+
 }

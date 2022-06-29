@@ -23,7 +23,7 @@ let vyDyRestaurant = new Restaurant_1.Restaurant('VyDyRestaurant', '1 street 473
  * Daro and Dary are customers.
  */
 let daro = new Customer_1.Customer(1, 'Daro', Person_1.Gender.MALE, 962517455, 'Phnom Penh');
-let dary = new Customer_1.Customer(1, 'Dary', Person_1.Gender.FEMALE, 962517455, 'Phnom Penh');
+let dary = new Customer_1.Customer(3, 'Dary', Person_1.Gender.FEMALE, 962517455, 'Phnom Penh');
 /**
  * Create chairs using Chair Class
  */
@@ -122,15 +122,17 @@ let daroOrder2 = new Order_1.Order(beefRiceM, 2, daro, lary);
 let billM = new BillManagement_1.BillManagement();
 billM.addOrderOfCustomer(daryOrder1, daryOrder2, daroOrder1, daroOrder2);
 let chef = new Chef_1.Chef(6, 'dy', Person_1.Gender.FEMALE, 9875678, 'pp');
-console.log(vyDyRestaurant);
-console.log(billM.allCustomerOrders);
-console.log(vyDyRestaurant.kitchen.meal);
-console.log(vyDyRestaurant.kitchen.drinks);
-console.log(vyDyRestaurant.kitchen.desserts);
+// console.log(vyDyRestaurant);
+// console.log(billM.allCustomerOrders);
+// console.log(vyDyRestaurant.kitchen.meal);
+// console.log(vyDyRestaurant.kitchen.drinks);
+// console.log(vyDyRestaurant.kitchen.desserts);
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
+console.log(billM.getCustomerBill(daro));
+console.log(billM.getCustomerBill(dary));
 // console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
 // console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());
 // console.log(vyDyRestaurant.kitchen.getPrincipalOfDrink());

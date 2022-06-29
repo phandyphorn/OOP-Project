@@ -1,12 +1,9 @@
 import { MenuManager } from "../../menuManagement/MenuManager";
-import { Order, OrderStatus } from "../../menuManagement/Order";
 import { Person, Gender } from "../Person";
-import { Waiter } from "../staff/Waiter";
 
 export class Customer extends Person{
 
     menu?: MenuManager;
-    // orders: Order[] = [];
 
     constructor(id: number, name: string, gender: Gender,phone:number, address:string)
     {
@@ -21,25 +18,8 @@ export class Customer extends Person{
         this.menu = menu;
     }
 
-    // orderFood(food: Order[], waiter: Waiter) {
+    getName() {
+        return this.name;
+    }
 
-    // }
-
-    // addOrderFood(...food: Order[]) {
-    //     this.orders = this.orders.concat(...food);
-    // }
-
-    // getOrdered(): Order[] {
-    //     return this.orders
-    // }
-
-    // getPrice(): number {
-    //     let totalPrice = 0;
-    //     for (let order of this.orders) {
-    //         if (!(order.status == OrderStatus.NOT_HAVE)) {
-    //             totalPrice += order.getPrice();
-    //         }
-    //     }
-    //     return totalPrice;
-    // }
 }

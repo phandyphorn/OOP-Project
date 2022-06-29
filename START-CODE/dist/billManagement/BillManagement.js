@@ -1,32 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BillManagement = void 0;
+const Order_1 = require("../menuManagement/Order");
 class BillManagement {
     constructor() {
         this.allCustomerOrders = [];
-        this.allMenuInKitchen = [];
     }
-    // getTotalIncome(): number{
-    //    let customerOrders = this.allCustomerOrders;
-    //    let totalIncome = 0;
-    //    customerOrders.forEach(order=>{
-    //         totalIncome += order.getPrice();
-    //    })
-    //    return totalIncome;
-    // }
-    // getTotalPrincipal(): number{
-    //     let menuInKichen = this.allMenuInKitchen;
-    //     let totalPrincipal = 0;
-    //     menuInKichen.forEach(food=>{
-    //         totalPrincipal += food.getPrice();
-    //     })
-    //     return totalPrincipal;
-    // }
-    // getRevenue(): number{
-    //     return 2;
-    // }
     addOrderOfCustomer(...order) {
         this.allCustomerOrders = this.allCustomerOrders.concat(...order);
+    }
+    getCustomerBill(customer) {
+        let bill = customer.getName() + ' orders:' + "\n";
+        let totalPrice = 0;
+        for (let order of this.allCustomerOrders) {
+            if (order.customer.isEqual(customer)) {
+                if (order.getStatus() !== Order_1.OrderStatus.NOT_HAVE) {
+                    bill = bill + ' - ' + order.food.name + ', price: ' + order.food.price + ', quality: ' + order.quaility + ',' + "\n";
+                    totalPrice += order.getPrice();
+                }
+            }
+        }
+        return bill + ' Total price is: ' + totalPrice;
     }
 }
 exports.BillManagement = BillManagement;

@@ -1,11 +1,10 @@
-import { BillManagement } from "../../billManagement/BillManagement";
-import { Food, FoodCategory } from "../../kitchenManagement/Food";
+import { FoodCategory } from "../../kitchenManagement/Food";
 import { Dessert } from "../../kitchenManagement/food/Dessert";
 import { Drink } from "../../kitchenManagement/food/Drink";
 import { Meal } from "../../kitchenManagement/food/Meal";
 import { KitchenManagement } from "../../kitchenManagement/kitchenManagement";
 import { Order, OrderStatus } from "../../menuManagement/Order";
-import { Person, Gender } from "../Person";
+import { Gender } from "../Person";
 import { Staff, StaffCategory } from "./Staff";
 
 export class Chef extends Staff{
