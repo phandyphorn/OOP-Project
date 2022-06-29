@@ -15,8 +15,12 @@ export class Chair {
 
     removeCustomer(customer: Customer) {
         if (this.customer?.isEqual(customer)) {
-            this.customer = undefined;
-            return "Now this chair is free"
+            if (customer.getPaying()) {
+                this.customer = undefined;
+                return "Now this chair is free";
+            }else {
+                return 'You need to pay us before you leave';
+            }
         }
     }
 

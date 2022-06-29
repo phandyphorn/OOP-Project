@@ -1,9 +1,11 @@
+import { BillManagement } from "../../billManagement/BillManagement";
 import { MenuManager } from "../../menuManagement/MenuManager";
 import { Person, Gender } from "../Person";
 
 export class Customer extends Person{
 
     menu?: MenuManager;
+    paying: boolean = false;
 
     constructor(id: number, name: string, gender: Gender,phone:number, address:string)
     {
@@ -20,6 +22,18 @@ export class Customer extends Person{
 
     getName() {
         return this.name;
+    }
+
+    pay(paidPrice: number, priceToPay: number) {
+        if (priceToPay > paidPrice) {
+            return 'Not enough you need to pay more';
+        }else {
+            this.paying = true;
+            return 'Thank you !!';
+        }
+    }
+    getPaying() {
+        return this.paying;
     }
 
 }

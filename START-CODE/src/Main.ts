@@ -103,12 +103,12 @@ vyDyRestaurant.humanResoure.addStaff(malin, mala, lary,lara);
  * Add Meals, Drinks, and Desserts into Kitchen
  */
 vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
-vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
 vyDyRestaurant.kitchen.addFoodToKitchen(chickenRice);
 vyDyRestaurant.kitchen.addFoodToKitchen(orange);
 vyDyRestaurant.kitchen.addFoodToKitchen(duran);
 vyDyRestaurant.kitchen.addFoodToKitchen(banana);
 vyDyRestaurant.kitchen.addFoodToKitchen(coca);
+vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
 
 /**
  * Create Item of menu
@@ -136,29 +136,22 @@ let daryOrder2 = new Order(chickenRiceM,1,dary, lara as Waiter);
 let daroOrder1 = new Order (duranM,1, daro, lary as Waiter);
 let daroOrder2 = new Order(beefRiceM,2, daro, lary as Waiter);
 
-// dary.orderFood(daryOrder1,daryOrder2);
-// daro.orderFood(daroOrder1, daroOrder2);
-
-// console.log(dary.getPrice());
-
-
 /**
  * Customer order foods
  * Dary order orangeOrder, chickenRiceOrder
  * Daro order two beers, two beefRices and two bananas
  */
 
-// console.log(dary.getOrdered());
 
 let billM = new BillManagement();
 billM.addOrderOfCustomer(  daryOrder1, daryOrder2, daroOrder1, daroOrder2);
 
 let chef = new Chef(6, 'dy', Gender.FEMALE, 9875678, 'pp');
-// console.log(vyDyRestaurant);
-// console.log(billM.allCustomerOrders);
-// console.log(vyDyRestaurant.kitchen.meal);
-// console.log(vyDyRestaurant.kitchen.drinks);
-// console.log(vyDyRestaurant.kitchen.desserts);
+console.log(vyDyRestaurant);
+console.log(billM.allCustomerOrders);
+console.log(vyDyRestaurant.kitchen.meal);
+console.log(vyDyRestaurant.kitchen.drinks);
+console.log(vyDyRestaurant.kitchen.desserts);
 
 
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
@@ -167,10 +160,9 @@ console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(billM.getCustomerBill(daro));
 console.log(billM.getCustomerBill(dary));
+console.log(daro.pay(3000, billM.getPriceToPay(daro)));
+console.log(chair1.removeCustomer(daro));
 
-// console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
-// console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());
-// console.log(vyDyRestaurant.kitchen.getPrincipalOfDrink());
 
 
 

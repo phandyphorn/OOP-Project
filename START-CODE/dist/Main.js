@@ -133,6 +133,8 @@ console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(billM.getCustomerBill(daro));
 console.log(billM.getCustomerBill(dary));
+console.log(daro.pay(3000, billM.getPriceToPay(daro)));
+console.log(chair1.removeCustomer(daro));
 // console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
 // console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());
 // console.log(vyDyRestaurant.kitchen.getPrincipalOfDrink());

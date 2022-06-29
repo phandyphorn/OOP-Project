@@ -22,5 +22,16 @@ class BillManagement {
         }
         return bill + ' Total price is: ' + totalPrice;
     }
+    getPriceToPay(customer) {
+        let totalPrice = 0;
+        for (let order of this.allCustomerOrders) {
+            if (order.customer.isEqual(customer)) {
+                if (order.getStatus() !== Order_1.OrderStatus.NOT_HAVE) {
+                    totalPrice += order.getPrice();
+                }
+            }
+        }
+        return totalPrice;
+    }
 }
 exports.BillManagement = BillManagement;

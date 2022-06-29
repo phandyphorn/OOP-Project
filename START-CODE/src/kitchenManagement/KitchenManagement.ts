@@ -6,47 +6,10 @@ import { Drink } from "./food/Drink";
 import { Meal } from "./food/Meal";
 
 export class KitchenManagement{
-    // allMenuInKitchen: Food[] = [];
     chefs: Chef[] = [];
     drinks: Drink[] = [];
     meal: Meal[] = [];
     desserts: Dessert[] = [];
-    // foodOrdered: Order[] = [];
-    // foodAlreadyCooked: Order[] = [];
-    // foodCooked: Food[] = [];
-
-    // addOrderFood(orderFood: Order[]) {
-    //     this.foodOrdered = this.foodOrdered.concat(orderFood);
-    // }
-
-    getPrincipalOfDrink(): number{
-        let totalD = 0
-        let allDrinks = this.drinks
-        allDrinks.forEach(drink => {
-            totalD += drink.getPrice();
-        })
-        return totalD;
-    }
-
-    getPrincipalOfMeal(): number{
-        let totalM = 0
-        let allMeals = this.meal
-        allMeals.forEach(meal => {
-            totalM += meal.getPrice();
-        })
-        return totalM;
-    }
-
-    getPrincipalOfDessert(): number{
-        let totalDe = 0
-        let allDesserts = this.desserts
-        allDesserts.forEach(dessert => {
-            totalDe += dessert.getPrice();
-        })
-        return totalDe;
-    }
-
-
 
     addFoodToKitchen(food: Food){
         let isHas = false;

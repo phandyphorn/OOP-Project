@@ -22,4 +22,15 @@ export class BillManagement {
         }
         return bill + ' Total price is: ' + totalPrice;
     }
+    getPriceToPay(customer: Customer) {
+        let totalPrice = 0;
+        for (let order of this.allCustomerOrders) {
+            if (order.customer.isEqual(customer)) {
+                if (order.getStatus() !== OrderStatus.NOT_HAVE) {
+                    totalPrice += order.getPrice();
+                }
+            }
+        }
+        return totalPrice;
+    }
 }   

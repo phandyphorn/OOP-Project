@@ -14,8 +14,13 @@ class Chair {
     removeCustomer(customer) {
         var _a;
         if ((_a = this.customer) === null || _a === void 0 ? void 0 : _a.isEqual(customer)) {
-            this.customer = undefined;
-            return "Now this chair is free";
+            if (customer.getPaying()) {
+                this.customer = undefined;
+                return "Now this chair is free";
+            }
+            else {
+                return 'You need to pay us before you leave';
+            }
         }
     }
 }
