@@ -4,6 +4,7 @@ import { KitchenManagement } from "./kitchenManagement/kitchenManagement";
 import { MenuManager } from "./menuManagement/MenuManager";
 import { TableManagement } from "./tableManagement/TableManagement";
 
+
 export class Restaurant {
     public tables = new TableManagement();
     public humanResoure = new HRManagement();
@@ -15,9 +16,4 @@ export class Restaurant {
         private address: string,
         private owner: string
     ){}
-
-    
-
-
-    
 }

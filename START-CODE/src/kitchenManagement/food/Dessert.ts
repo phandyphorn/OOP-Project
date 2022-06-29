@@ -5,10 +5,11 @@ export class Dessert extends Food {
     constructor (
         name: ItemName, 
         price: number, 
-        quality: number
+        quality: number,
+        
     )
     {
-        super(name, price, FoodCategory.DESSERT, quality);
+        super(name, price, quality, FoodCategory.DESSERT);
     }
 
     isEqual(otherDessert: Dessert) {

@@ -5,7 +5,7 @@ export class Drink extends Food {
     constructor (
         name: ItemName, 
         price: number,
-        quality: number
+        quality: number,
     )
     {
         super(name, price, FoodCategory.DRINK, quality);
@@ -26,4 +26,5 @@ export class Drink extends Food {
     hasThisDrink(drink: Food) {
         return this.name == drink.name;
     }
+
 }

@@ -7,9 +7,9 @@ export class Customer extends Person{
     menu?: MenuManager;
     orders: Order[] = [];
 
-    constructor(id: number, name: string, gender: Gender, phone:number, address:string)
+    constructor(id: number, name: string, gender: Gender,phone:number, address:string)
     {
-        super(id, name, phone, gender, address);
+        super(id, name,gender, phone, address);
     }
 
     isEqual(otherCustomer: Customer) {
@@ -28,6 +28,11 @@ export class Customer extends Person{
         return this.orders
     }
 
-
-
+    getPrice(): number {
+        let totalPrice = 0;
+        for (let order of this.orders) {
+            totalPrice += order.getPrice();
+        }
+        return totalPrice;
+    }
 }

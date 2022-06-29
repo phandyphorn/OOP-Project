@@ -2,8 +2,8 @@ import { Customer } from "../hrManagement/customer/Customer";
 import { MenuItem } from "./MenuItem";
 
 export enum OrderStatus{
-    COMPLETED,
-    NOT_COMPLETED
+    COMPLETED = 'Completed',
+    NOT_COMPLETED = 'Not Completed'
 }
 export class Order {
     public status: OrderStatus = OrderStatus.NOT_COMPLETED;
@@ -12,5 +12,12 @@ export class Order {
     addStatus(status: OrderStatus) {
         this.status = status;
     }
+
+    getPrice(): number{
+        return this.food.price * this.quaility;
+    
+    }
+
+
 
 }

@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Person = exports.Gender = void 0;
 var Gender;
 (function (Gender) {
-    Gender[Gender["FEMALE"] = 0] = "FEMALE";
-    Gender[Gender["MALE"] = 1] = "MALE";
+    Gender["FEMALE"] = "Female";
+    Gender["MALE"] = "Male";
 })(Gender = exports.Gender || (exports.Gender = {}));
 class Person {
     constructor(id, name, gender, phone, address) {

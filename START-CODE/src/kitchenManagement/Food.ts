@@ -16,14 +16,17 @@ export abstract class Food {
     constructor(
         public name: ItemName, 
         public price: number, 
+        public quality: number,
         public foodCategory: FoodCategory,
-        public quality: number
     )
     {}
+
+    getPrice(): number{
+        return this.price;
+    }
+
 
     addStatus(status: FoodStatus) {
         this.status = status;
     }
-
-    
 }

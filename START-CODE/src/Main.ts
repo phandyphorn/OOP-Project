@@ -1,13 +1,15 @@
 import { Restaurant } from "./Restaurant";
 import { Gender} from "./hrManagement/Person";
 import { Customer } from "./hrManagement/customer/Customer";
-import { Food } from "./kitchenManagement/Food";
+import { FoodCategory } from "./kitchenManagement/Food";
 import { Chair } from "./tableManagement/Chair";
 import { Table } from "./tableManagement/Table";
-import { Staff, StaffCategory } from "./hrManagement/staff/Staff";
-import { Dessert } from "./kitchenManagement/food/Dessert";
 import { Meal } from "./kitchenManagement/food/Meal";
 import { Drink } from "./kitchenManagement/food/Drink";
+import { Dessert } from "./kitchenManagement/food/Dessert";
+import { Staff, StaffCategory } from "./hrManagement/staff/Staff";
+import { Order } from "./menuManagement/Order";
+import { ItemName, MenuItem } from "./menuManagement/MenuItem";
 
 
 /**
@@ -58,5 +60,101 @@ table2.addChair(chair3, chair4)
  */
 vyDyRestaurant.tables.addTable(table1, table2);
 console.log(vyDyRestaurant);
+
+
+/**
+ *  Create Staff using Staff class
+ *  Malin, Malis are chefs
+ */
+let malin = new Staff(StaffCategory.CHEF,1,"Malin", Gender.FEMALE, 962517455, '2-street-374');
+let mala = new Staff(StaffCategory.CHEF,2,"Mala", Gender.MALE,719675309,'2 347 street');
+
+/**
+ * Create Waiter using Staff Class
+ * Lary and Lara
+ */
+let lary = new Staff(StaffCategory.WAITER,1,"Lary", Gender.FEMALE, 962517455, '2-street-374');
+let lara = new Staff(StaffCategory.WAITER,2,"Lara", Gender.MALE,719675309,'2 347 street');
+
+/**
+ * At Customer to customers
+ * At Staff to staffs
+ */
+vyDyRestaurant.humanResoure.addCustomer(daro, dary);
+vyDyRestaurant.humanResoure.addStaff(malin, mala, lary,lara);
+
+/**
+ * Creat menu of food only in the kitchen
+ * 3 desserts, 3 meals and 3 drinks
+ */
+ let banana = new Dessert(ItemName.BANANA, 1000, 10);
+ let duran = new Dessert(ItemName.DURAN, 8000, 3);
+ 
+ let beefRice = new Meal(ItemName.BEEFRICE, 5000, 5);
+ let chickenRice = new Meal(ItemName.CHICKENRICE, 5000,2);
+ 
+ let coca = new Drink(ItemName.COCA, 2000, 20);
+ let orange = new Drink(ItemName.ORANGE, 4000,5);
+
+/**
+ * Add Meals, Drinks, and Desserts into Kitchen
+ */
+vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
+vyDyRestaurant.kitchen.addFoodToKitchen(chickenRice);
+vyDyRestaurant.kitchen.addFoodToKitchen(orange);
+vyDyRestaurant.kitchen.addFoodToKitchen(duran);
+vyDyRestaurant.kitchen.addFoodToKitchen(banana);
+vyDyRestaurant.kitchen.addFoodToKitchen(coca);
+
+/**
+ * Create Item of menu
+ */
+let bananaM = new MenuItem(ItemName.BANANA, 5000,FoodCategory.DESSERT);
+let duranM = new MenuItem(ItemName.DURAN, 10000, FoodCategory.DESSERT);
+
+let beefRiceM = new MenuItem(ItemName.BEEFRICE, 10000,FoodCategory.MEAL);
+let chickenRiceM = new MenuItem(ItemName.CHICKENRICE, 10000, FoodCategory.MEAL);
+
+let cocaM = new MenuItem(ItemName.COCA, 5000,FoodCategory.DRINK);
+let orangeM = new MenuItem(ItemName.ORANGE, 5000,FoodCategory.DRINK);
+
+/**
+ * Add all Item to menu
+ */
+vyDyRestaurant.menu.addMenuItem(bananaM);
+vyDyRestaurant.menu.addMenuItem(cocaM);
+
+/**
+ * Create customer order foods.
+ */
+let daryOrder1 = new Order(orangeM,1, dary);
+let daryOrder2 = new Order(chickenRiceM,1,dary);
+let daroOrder1 = new Order (duranM,1, daro);
+let daroOrder2 = new Order(beefRiceM,2, daro);
+
+dary.orderFood(daryOrder1,daryOrder2);
+daro.orderFood(daroOrder1, daroOrder2);
+
+console.log(dary.getPrice());
+
+
+/**
+ * Customer order foods
+ * Dary order orangeOrder, chickenRiceOrder
+ * Daro order two beers, two beefRices and two bananas
+ */
+
+console.log(dary.getOrdered());
+
+
+
+console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
+console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());
+console.log(vyDyRestaurant.kitchen.getPrincipalOfDrink());
+
+
+
+
+
 
 

@@ -5,8 +5,9 @@ export class Meal extends Food {
     constructor (
         name: ItemName,
         price: number,
-        quality: number
+        quality: number,
     )
+
     {
         super(name, price, FoodCategory.MEAL, quality);
     }
