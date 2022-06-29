@@ -8,7 +8,7 @@ export class Drink extends Food {
         quality: number,
     )
     {
-        super(name, price, FoodCategory.DRINK, quality);
+        super(name, price, quality, FoodCategory.DRINK);
     }
 
     isEqual(otherDrink: Drink) {
@@ -21,10 +21,6 @@ export class Drink extends Food {
   
     decreaseQuality(quality: number) {
         this.quality -= quality;
-    }
-
-    hasThisDrink(drink: Food) {
-        return this.name == drink.name;
     }
 
 }

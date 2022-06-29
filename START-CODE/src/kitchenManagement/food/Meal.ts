@@ -9,7 +9,7 @@ export class Meal extends Food {
     )
 
     {
-        super(name, price, FoodCategory.MEAL, quality);
+        super(name, price, quality, FoodCategory.MEAL);
     }
 
     isEqual(otherMeal: Meal) {
@@ -24,7 +24,4 @@ export class Meal extends Food {
         this.quality -= quality;
     }
 
-    hasThisMeal(meal: Food) {
-        return this.name == meal.name;
-    }
 }

@@ -1,22 +1,67 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KitchenManagement = void 0;
-const Order_1 = require("../menuManagement/Order");
 const Food_1 = require("./Food");
 class KitchenManagement {
     constructor() {
-        this.allMenuInKitchen = [];
+        // allMenuInKitchen: Food[] = [];
         this.chefs = [];
         this.drinks = [];
         this.meal = [];
         this.desserts = [];
-        this.foodOrdered = [];
-        this.foodAlreadyCooked = [];
-        this.foodCooked = [];
+        // chefCook(chef: Chef, allOrders: Order[]) {
+        //     let food = this.foodOrdered[0];
+        //     if (food.food.category == FoodCategory.DESSERT) {
+        //         for (let i=0; i < this.desserts.length; i++) {
+        //             let dessert = this.desserts[i];
+        //             if (dessert.name == food.food.name) {
+        //                 if (dessert.quality >= food.quaility) {
+        //                     this.foodCooked.push(chef.cook(food, FoodCategory.DESSERT) as Food);
+        //                     this.desserts[i].decreaseQuality(food.quaility);
+        //                 }else {
+        //                     this.foodOrdered[0].addStatus(OrderStatus.NOT_HAVE);
+        //                     return "Don't have enough Dessert available in the kitchen";
+        //                 }
+        //             }
+        //         }
+        //     }else if (food.food.category == FoodCategory.DRINK) {
+        //         for (let i=0; i < this.drinks.length; i++) {
+        //             let drink = this.drinks[i];
+        //             if (drink.name == food.food.name) {
+        //                 if (drink.quality >= food.quaility) {
+        //                     this.foodCooked.push(chef.cook(food, FoodCategory.DRINK) as Food);
+        //                     this.drinks[i].decreaseQuality(food.quaility);
+        //                 }else {
+        //                     this.foodOrdered[0].addStatus(OrderStatus.NOT_HAVE);
+        //                     return "Don't have enough Drink available in the kitchen";
+        //                 }
+        //             }
+        //         }
+        //     }else if (food.food.category == FoodCategory.MEAL) {
+        //         for (let i=0; i < this.meal.length; i++) {
+        //             let meal = this.meal[i];
+        //             if (meal.name == food.food.name) {
+        //                 if (meal.quality >= food.quaility) {
+        //                     this.foodCooked.push(chef.cook(food, FoodCategory.MEAL) as Food);
+        //                     this.meal[i].decreaseQuality(food.quaility);
+        //                 }else {
+        //                     this.foodOrdered[0].addStatus(OrderStatus.NOT_HAVE);
+        //                     return "Don't have enough Meal available in the kitchen";
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     this.foodOrdered[0].addStatus(OrderStatus.COMPLETED);
+        //     this.addFoodAlreadyCooked(this.foodOrdered[0])
+        //     this.foodOrdered.splice(0,1);
+        // }
     }
-    addOrderFood(orderFood) {
-        this.foodOrdered = this.foodOrdered.concat(orderFood);
-    }
+    // foodOrdered: Order[] = [];
+    // foodAlreadyCooked: Order[] = [];
+    // foodCooked: Food[] = [];
+    // addOrderFood(orderFood: Order[]) {
+    //     this.foodOrdered = this.foodOrdered.concat(orderFood);
+    // }
     getPrincipalOfDrink() {
         let totalD = 0;
         let allDrinks = this.drinks;
@@ -40,9 +85,6 @@ class KitchenManagement {
             totalDe += dessert.getPrice();
         });
         return totalDe;
-    }
-    addFoodAlreadyCooked(food) {
-        this.foodAlreadyCooked.push(food);
     }
     addFoodToKitchen(food) {
         let isHas = false;
@@ -79,45 +121,6 @@ class KitchenManagement {
                 this.meal.push(food);
             }
         }
-    }
-    chefCook(chef) {
-        let food = this.foodOrdered[0];
-        if (food.food.category == Food_1.FoodCategory.DESSERT) {
-            for (let i = 0; i < this.desserts.length; i++) {
-                let dessert = this.desserts[i];
-                if (dessert.name == food.food.name) {
-                    if (dessert.quality >= food.quaility) {
-                        this.foodCooked.push(chef.cook(food, Food_1.FoodCategory.DESSERT));
-                        this.desserts[i].decreaseQuality(food.quaility);
-                    }
-                }
-            }
-        }
-        else if (food.food.category == Food_1.FoodCategory.DRINK) {
-            for (let i = 0; i < this.drinks.length; i++) {
-                let drink = this.drinks[i];
-                if (drink.name == food.food.name) {
-                    if (drink.quality >= food.quaility) {
-                        this.foodCooked.push(chef.cook(food, Food_1.FoodCategory.DRINK));
-                        this.drinks[i].decreaseQuality(food.quaility);
-                    }
-                }
-            }
-        }
-        else if (food.food.category == Food_1.FoodCategory.MEAL) {
-            for (let i = 0; i < this.meal.length; i++) {
-                let meal = this.meal[i];
-                if (meal.name == food.food.name) {
-                    if (meal.quality >= food.quaility) {
-                        this.foodCooked.push(chef.cook(food, Food_1.FoodCategory.MEAL));
-                        this.meal[i].decreaseQuality(food.quaility);
-                    }
-                }
-            }
-        }
-        this.foodOrdered[0].addStatus(Order_1.OrderStatus.COMPLETED);
-        this.addFoodAlreadyCooked(this.foodOrdered[0]);
-        this.foodOrdered.splice(0, 1);
     }
 }
 exports.KitchenManagement = KitchenManagement;

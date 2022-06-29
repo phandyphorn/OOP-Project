@@ -25,5 +25,8 @@ class Food {
     addStatus(status) {
         this.status = status;
     }
+    getCategory() {
+        return this.foodCategory;
+    }
 }
 exports.Food = Food;

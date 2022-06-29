@@ -29,4 +29,7 @@ export abstract class Food {
     addStatus(status: FoodStatus) {
         this.status = status;
     }
+    getCategory() {
+        return this.foodCategory;
+    }
 }

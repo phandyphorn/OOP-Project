@@ -4,7 +4,7 @@ exports.Meal = void 0;
 const Food_1 = require("../Food");
 class Meal extends Food_1.Food {
     constructor(name, price, quality) {
-        super(name, price, Food_1.FoodCategory.MEAL, quality);
+        super(name, price, quality, Food_1.FoodCategory.MEAL);
     }
     isEqual(otherMeal) {
         return this.name == otherMeal.name;
@@ -14,9 +14,6 @@ class Meal extends Food_1.Food {
     }
     decreaseQuality(quality) {
         this.quality -= quality;
-    }
-    hasThisMeal(meal) {
-        return this.name == meal.name;
     }
 }
 exports.Meal = Meal;

@@ -10,6 +10,9 @@ import { Dessert } from "./kitchenManagement/food/Dessert";
 import { Staff, StaffCategory } from "./hrManagement/staff/Staff";
 import { Order } from "./menuManagement/Order";
 import { ItemName, MenuItem } from "./menuManagement/MenuItem";
+import { Waiter } from "./hrManagement/staff/Waiter";
+import { BillManagement } from "./billManagement/BillManagement";
+import { Chef } from "./hrManagement/staff/Chef";
 
 
 /**
@@ -59,7 +62,7 @@ table2.addChair(chair3, chair4)
  * Add table to table management
  */
 vyDyRestaurant.tables.addTable(table1, table2);
-console.log(vyDyRestaurant);
+// console.log(vyDyRestaurant);
 
 
 /**
@@ -91,7 +94,7 @@ vyDyRestaurant.humanResoure.addStaff(malin, mala, lary,lara);
  let duran = new Dessert(ItemName.DURAN, 8000, 3);
  
  let beefRice = new Meal(ItemName.BEEFRICE, 5000, 5);
- let chickenRice = new Meal(ItemName.CHICKENRICE, 5000,2);
+ let chickenRice = new Meal(ItemName.CHICKENRICE, 5000, 2);
  
  let coca = new Drink(ItemName.COCA, 2000, 20);
  let orange = new Drink(ItemName.ORANGE, 4000,5);
@@ -99,6 +102,7 @@ vyDyRestaurant.humanResoure.addStaff(malin, mala, lary,lara);
 /**
  * Add Meals, Drinks, and Desserts into Kitchen
  */
+vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
 vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
 vyDyRestaurant.kitchen.addFoodToKitchen(chickenRice);
 vyDyRestaurant.kitchen.addFoodToKitchen(orange);
@@ -127,15 +131,15 @@ vyDyRestaurant.menu.addMenuItem(cocaM);
 /**
  * Create customer order foods.
  */
-let daryOrder1 = new Order(orangeM,1, dary);
-let daryOrder2 = new Order(chickenRiceM,1,dary);
-let daroOrder1 = new Order (duranM,1, daro);
-let daroOrder2 = new Order(beefRiceM,2, daro);
+let daryOrder1 = new Order(orangeM,3, dary, lara as Waiter);
+let daryOrder2 = new Order(chickenRiceM,1,dary, lara as Waiter);
+let daroOrder1 = new Order (duranM,1, daro, lary as Waiter);
+let daroOrder2 = new Order(beefRiceM,2, daro, lary as Waiter);
 
-dary.orderFood(daryOrder1,daryOrder2);
-daro.orderFood(daroOrder1, daroOrder2);
+// dary.orderFood(daryOrder1,daryOrder2);
+// daro.orderFood(daroOrder1, daroOrder2);
 
-console.log(dary.getPrice());
+// console.log(dary.getPrice());
 
 
 /**
@@ -144,13 +148,27 @@ console.log(dary.getPrice());
  * Daro order two beers, two beefRices and two bananas
  */
 
-console.log(dary.getOrdered());
+// console.log(dary.getOrdered());
+
+let billM = new BillManagement();
+billM.addOrderOfCustomer(  daryOrder1, daryOrder2, daroOrder1, daroOrder2);
+
+let chef = new Chef(6, 'dy', Gender.FEMALE, 9875678, 'pp');
+console.log(vyDyRestaurant);
+console.log(billM.allCustomerOrders);
+console.log(vyDyRestaurant.kitchen.meal);
+console.log(vyDyRestaurant.kitchen.drinks);
+console.log(vyDyRestaurant.kitchen.desserts);
 
 
+console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
+console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
+console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
+console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 
-console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
-console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());
-console.log(vyDyRestaurant.kitchen.getPrincipalOfDrink());
+// console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
+// console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());
+// console.log(vyDyRestaurant.kitchen.getPrincipalOfDrink());
 
 
 
