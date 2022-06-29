@@ -71,45 +71,50 @@ vyDyRestaurant.humanResoure.addStaff(malin, mala, lary, lara);
  * Creat menu of food only in the kitchen
  * 3 desserts, 3 meals and 3 drinks
  */
-let banana = new Dessert_1.Dessert('Banana', 1000, 10, Food_1.FoodCategory.DESSERT);
-let duran = new Dessert_1.Dessert('Duran', 8000, 3, Food_1.FoodCategory.DESSERT);
-let beefRice = new Meal_1.Meal('Beef and Rice', 7000, 5, Food_1.FoodCategory.MEAL);
-let chickenRice = new Meal_1.Meal('Chicken and Rice', 6000, 2, Food_1.FoodCategory.MEAL);
-let coca = new Drink_1.Drink('Coca', 2000, 20, Food_1.FoodCategory.DRINK);
-let orange = new Drink_1.Drink('Orange', 4000, 5, Food_1.FoodCategory.DRINK);
+let banana = new Dessert_1.Dessert(MenuItem_1.ItemName.BANANA, 1000, 10);
+let duran = new Dessert_1.Dessert(MenuItem_1.ItemName.DURAN, 8000, 3);
+let beefRice = new Meal_1.Meal(MenuItem_1.ItemName.BEEFRICE, 5000, 5);
+let chickenRice = new Meal_1.Meal(MenuItem_1.ItemName.CHICKENRICE, 5000, 2);
+let coca = new Drink_1.Drink(MenuItem_1.ItemName.COCA, 2000, 20);
+let orange = new Drink_1.Drink(MenuItem_1.ItemName.ORANGE, 4000, 5);
 /**
  * Add Meals, Drinks, and Desserts into Kitchen
  */
-vyDyRestaurant.kitchen.addMeal(beefRice, chickenRice);
-vyDyRestaurant.kitchen.addDessert(banana, duran);
-vyDyRestaurant.kitchen.addDrink(coca, orange);
+vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
+vyDyRestaurant.kitchen.addFoodToKitchen(chickenRice);
+vyDyRestaurant.kitchen.addFoodToKitchen(orange);
+vyDyRestaurant.kitchen.addFoodToKitchen(duran);
+vyDyRestaurant.kitchen.addFoodToKitchen(banana);
+vyDyRestaurant.kitchen.addFoodToKitchen(coca);
 /**
  * Create Item of menu
  */
-let bananaM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.BANANA, 1000, Food_1.FoodCategory.DESSERT);
-let duranM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.DURAN, 8000, Food_1.FoodCategory.DESSERT);
-let beefRiceM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.BEEFRICE, 7000, Food_1.FoodCategory.MEAL);
-let chickenRiceM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.CHICKENRICE, 6000, Food_1.FoodCategory.MEAL);
-let cocaM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.COCA, 2000, Food_1.FoodCategory.DRINK);
-let orangeM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.ORANGE, 4000, Food_1.FoodCategory.DRINK);
+let bananaM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.BANANA, 5000, Food_1.FoodCategory.DESSERT);
+let duranM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.DURAN, 10000, Food_1.FoodCategory.DESSERT);
+let beefRiceM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.BEEFRICE, 10000, Food_1.FoodCategory.MEAL);
+let chickenRiceM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.CHICKENRICE, 10000, Food_1.FoodCategory.MEAL);
+let cocaM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.COCA, 5000, Food_1.FoodCategory.DRINK);
+let orangeM = new MenuItem_1.MenuItem(MenuItem_1.ItemName.ORANGE, 5000, Food_1.FoodCategory.DRINK);
 /**
  * Add all Item to menu
  */
-vyDyRestaurant.menu.addMenuItem(bananaM, duranM, beefRiceM, chickenRiceM, cocaM, orangeM);
+vyDyRestaurant.menu.addMenuItem(bananaM);
+vyDyRestaurant.menu.addMenuItem(cocaM);
 /**
- * Create Orders for customer
+ * Create customer order foods.
  */
-let orangeOrder = new Order_1.Order(orangeM, 1);
-let chickenRiceOrder = new Order_1.Order(chickenRiceM, 1);
-let duranOrder = new Order_1.Order(duranM, 1);
-let beefRiceOrder = new Order_1.Order(beefRiceM, 2);
+let daryOrder1 = new Order_1.Order(orangeM, 1, dary);
+let daryOrder2 = new Order_1.Order(chickenRiceM, 1, dary);
+let daroOrder1 = new Order_1.Order(duranM, 1, daro);
+let daroOrder2 = new Order_1.Order(beefRiceM, 2, daro);
+dary.orderFood(daryOrder1, daryOrder2);
+daro.orderFood(daroOrder1, daroOrder2);
+console.log(dary.getPrice());
 /**
  * Customer order foods
  * Dary order orangeOrder, chickenRiceOrder
  * Daro order two beers, two beefRices and two bananas
  */
-dary.orderFood(orangeOrder, chickenRiceOrder);
-daro.orderFood(duranOrder, beefRiceOrder);
 console.log(dary.getOrdered());
 console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
 console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());

@@ -1,8 +1,7 @@
 import { Restaurant } from "./Restaurant";
-import { KitchenManagement } from "./kitchenManagement/kitchenManagement";
 import { Gender} from "./hrManagement/Person";
 import { Customer } from "./hrManagement/customer/Customer";
-import { Food, FoodCategory } from "./kitchenManagement/Food";
+import { FoodCategory } from "./kitchenManagement/Food";
 import { Chair } from "./tableManagement/Chair";
 import { Table } from "./tableManagement/Table";
 import { Meal } from "./kitchenManagement/food/Meal";
@@ -88,53 +87,55 @@ vyDyRestaurant.humanResoure.addStaff(malin, mala, lary,lara);
  * Creat menu of food only in the kitchen
  * 3 desserts, 3 meals and 3 drinks
  */
- let banana = new Dessert('Banana', 1000, 10, FoodCategory.DESSERT);
- let duran = new Dessert('Duran', 8000, 3, FoodCategory.DESSERT);
+ let banana = new Dessert(ItemName.BANANA, 1000, 10);
+ let duran = new Dessert(ItemName.DURAN, 8000, 3);
  
- let beefRice = new Meal('Beef and Rice', 7000, 5,FoodCategory.MEAL);
- let chickenRice = new Meal('Chicken and Rice', 6000,2, FoodCategory.MEAL);
+ let beefRice = new Meal(ItemName.BEEFRICE, 5000, 5);
+ let chickenRice = new Meal(ItemName.CHICKENRICE, 5000,2);
  
- let coca = new Drink('Coca', 2000, 20, FoodCategory.DRINK);
- let orange = new Drink('Orange', 4000,5,FoodCategory.DRINK);
+ let coca = new Drink(ItemName.COCA, 2000, 20);
+ let orange = new Drink(ItemName.ORANGE, 4000,5);
 
 /**
  * Add Meals, Drinks, and Desserts into Kitchen
  */
-vyDyRestaurant.kitchen.addMeal(beefRice,chickenRice);
-vyDyRestaurant.kitchen.addDessert(banana,duran);
-vyDyRestaurant.kitchen.addDrink(coca,orange);
+vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
+vyDyRestaurant.kitchen.addFoodToKitchen(chickenRice);
+vyDyRestaurant.kitchen.addFoodToKitchen(orange);
+vyDyRestaurant.kitchen.addFoodToKitchen(duran);
+vyDyRestaurant.kitchen.addFoodToKitchen(banana);
+vyDyRestaurant.kitchen.addFoodToKitchen(coca);
 
 /**
  * Create Item of menu
  */
-let bananaM = new MenuItem(ItemName.BANANA, 1000,FoodCategory.DESSERT);
-let duranM = new MenuItem(ItemName.DURAN, 8000, FoodCategory.DESSERT);
+let bananaM = new MenuItem(ItemName.BANANA, 5000,FoodCategory.DESSERT);
+let duranM = new MenuItem(ItemName.DURAN, 10000, FoodCategory.DESSERT);
 
-let beefRiceM = new MenuItem(ItemName.BEEFRICE, 7000,FoodCategory.MEAL);
-let chickenRiceM = new MenuItem(ItemName.CHICKENRICE, 6000, FoodCategory.MEAL);
+let beefRiceM = new MenuItem(ItemName.BEEFRICE, 10000,FoodCategory.MEAL);
+let chickenRiceM = new MenuItem(ItemName.CHICKENRICE, 10000, FoodCategory.MEAL);
 
-let cocaM = new MenuItem(ItemName.COCA, 2000,FoodCategory.DRINK);
-let orangeM = new MenuItem(ItemName.ORANGE, 4000,FoodCategory.DRINK);
+let cocaM = new MenuItem(ItemName.COCA, 5000,FoodCategory.DRINK);
+let orangeM = new MenuItem(ItemName.ORANGE, 5000,FoodCategory.DRINK);
 
 /**
  * Add all Item to menu
  */
-vyDyRestaurant.menu.addMenuItem(
-    bananaM,
-    duranM, 
-    beefRiceM, 
-    chickenRiceM, 
-    cocaM, 
-    orangeM
-);
+vyDyRestaurant.menu.addMenuItem(bananaM);
+vyDyRestaurant.menu.addMenuItem(cocaM);
 
 /**
- * Create Orders for customer
+ * Create customer order foods.
  */
-let orangeOrder = new Order(orangeM,1);
-let chickenRiceOrder = new Order(chickenRiceM,1);
-let duranOrder = new Order (duranM, 1);
-let beefRiceOrder = new Order(beefRiceM,2);
+let daryOrder1 = new Order(orangeM,1, dary);
+let daryOrder2 = new Order(chickenRiceM,1,dary);
+let daroOrder1 = new Order (duranM,1, daro);
+let daroOrder2 = new Order(beefRiceM,2, daro);
+
+dary.orderFood(daryOrder1,daryOrder2);
+daro.orderFood(daroOrder1, daroOrder2);
+
+console.log(dary.getPrice());
 
 
 /**
@@ -142,11 +143,10 @@ let beefRiceOrder = new Order(beefRiceM,2);
  * Dary order orangeOrder, chickenRiceOrder
  * Daro order two beers, two beefRices and two bananas
  */
-dary.orderFood(orangeOrder, chickenRiceOrder);
-daro.orderFood(duranOrder,  beefRiceOrder);
+
 console.log(dary.getOrdered());
 
-vyDyRestaurant.bill.
+
 
 console.log(vyDyRestaurant.kitchen.getPrincipalOfMeal());
 console.log(vyDyRestaurant.kitchen.getPrincipalOfDessert());

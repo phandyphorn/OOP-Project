@@ -11,7 +11,7 @@ export class BillManagement {
        let customerOrders = this.allCustomerOrders;
        let totalIncome = 0;
        customerOrders.forEach(order=>{
-            totalIncome += order.foods.getPrice();
+            totalIncome += order.food.getPrice();
        })
        return totalIncome;
     }

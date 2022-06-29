@@ -1,14 +1,30 @@
+import { ItemName } from '../../menuManagement/MenuItem';
 import { Food, FoodCategory } from '../Food';
 
 export class Meal extends Food {
     constructor (
-        name: string,
+        name: ItemName,
         price: number,
         quality: number,
-        foodCategory: FoodCategory
     )
 
     {
-        super(name, price, foodCategory, quality);
+        super(name, price, FoodCategory.MEAL, quality);
+    }
+
+    isEqual(otherMeal: Meal) {
+        return this.name == otherMeal.name;
+    }
+
+    increaseQuality(moreQuality: number) {
+        this.quality += moreQuality;
+    }
+
+    decreaseQuality(quality: number) {
+        this.quality -= quality;
+    }
+
+    hasThisMeal(meal: Food) {
+        return this.name == meal.name;
     }
 }

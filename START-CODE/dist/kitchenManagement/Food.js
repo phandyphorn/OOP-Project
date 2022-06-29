@@ -1,23 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Food = exports.FoodCategory = void 0;
+exports.Food = exports.FoodStatus = exports.FoodCategory = void 0;
 var FoodCategory;
 (function (FoodCategory) {
-    FoodCategory["MEAL"] = "Meal";
-    FoodCategory["DRINK"] = "Drink";
-    FoodCategory["DESSERT"] = "Dessert";
+    FoodCategory[FoodCategory["MEAL"] = 0] = "MEAL";
+    FoodCategory[FoodCategory["DRINK"] = 1] = "DRINK";
+    FoodCategory[FoodCategory["DESSERT"] = 2] = "DESSERT";
 })(FoodCategory = exports.FoodCategory || (exports.FoodCategory = {}));
+var FoodStatus;
+(function (FoodStatus) {
+    FoodStatus[FoodStatus["HAVE"] = 0] = "HAVE";
+    FoodStatus[FoodStatus["NOTHAVE"] = 1] = "NOTHAVE";
+})(FoodStatus = exports.FoodStatus || (exports.FoodStatus = {}));
 class Food {
-    constructor(name, price, foodCategory, quality) {
+    constructor(name, price, quality, foodCategory) {
         this.name = name;
         this.price = price;
-        this.foodCategory = foodCategory;
         this.quality = quality;
+        this.foodCategory = foodCategory;
     }
     getPrice() {
         return this.price;
     }
-    addStatus() {
+    addStatus(status) {
+        this.status = status;
     }
 }
 exports.Food = Food;

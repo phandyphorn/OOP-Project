@@ -10,11 +10,21 @@ class Customer extends Person_1.Person {
     isEqual(otherCustomer) {
         return this.id == otherCustomer.id;
     }
+    addMenu(menu) {
+        this.menu = menu;
+    }
     orderFood(...food) {
         this.orders = this.orders.concat(...food);
     }
     getOrdered() {
         return this.orders;
+    }
+    getPrice() {
+        let totalPrice = 0;
+        for (let order of this.orders) {
+            totalPrice += order.getPrice();
+        }
+        return totalPrice;
     }
 }
 exports.Customer = Customer;
