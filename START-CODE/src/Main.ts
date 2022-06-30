@@ -20,14 +20,13 @@ import { Chef } from "./hrManagement/staff/Chef";
  */
 let vyDyRestaurant = new Restaurant('VyDyRestaurant', '1 street 473', 'VyDy');
 
-
 /**
  * Create Customer using Person Class
- * Daro and Dary are customers.
+ * Daro, Niroth and Dary are customers.
  */
 let daro = new Customer(1, 'Daro', Gender.MALE, 962517455, 'Phnom Penh');
-let dary = new Customer(3, 'Dary', Gender.FEMALE, 962517455, 'Phnom Penh');
-
+let niroth = new Customer(1, 'Niroth', Gender.FEMALE, 964743586, 'Phnom Penh');
+let dary = new Customer(2, 'Dary', Gender.FEMALE, 889708156, 'Phnom Penh');
 
 /**
  * Create chairs using Chair Class
@@ -36,7 +35,10 @@ let chair1 = new Chair(1);
 let chair2 = new Chair(2);
 let chair3 = new Chair(3);
 let chair4 = new Chair(4);
-
+let chair5 = new Chair(5);
+let chair6 = new Chair(6);
+let chair7 = new Chair(7);
+let chair8 = new Chair(8);
 
 /**
  * Create table usiing Table Class
@@ -45,24 +47,29 @@ let table1 = new Table(1);
 let table2 = new Table(2);
 
 /**
- * Add Customers To Chair;
+ * Add table to table management
  */
-chair1.setCustomer(daro);
-chair2.setCustomer(dary);
+ vyDyRestaurant.tables.addTable(table1, table2);
 
 
 /**
  * Add Chairs to Table
  */
-table1.addChair(chair1, chair2);
-table2.addChair(chair3, chair4)
-
+table1.addChair(chair1);
+table1.addChair(chair2);
+table1.addChair(chair3);
+table1.addChair(chair4);
+table2.addChair(chair5);
+table2.addChair(chair6);
+table2.addChair(chair7);
+table2.addChair(chair8);
 
 /**
- * Add table to table management
+ * Add Customers To Chair;
  */
-vyDyRestaurant.tables.addTable(table1, table2);
-// console.log(vyDyRestaurant);
+chair1.setCustomer(daro);
+chair2.setCustomer(dary);
+chair5.setCustomer(niroth);
 
 
 /**
@@ -108,6 +115,7 @@ vyDyRestaurant.kitchen.addFoodToKitchen(orange);
 vyDyRestaurant.kitchen.addFoodToKitchen(duran);
 vyDyRestaurant.kitchen.addFoodToKitchen(banana);
 vyDyRestaurant.kitchen.addFoodToKitchen(coca);
+
 vyDyRestaurant.kitchen.addFoodToKitchen(beefRice);
 
 /**
@@ -144,7 +152,7 @@ let daroOrder2 = new Order(beefRiceM,2, daro, lary as Waiter);
 
 
 let billM = new BillManagement();
-billM.addOrderOfCustomer(  daryOrder1, daryOrder2, daroOrder1, daroOrder2);
+billM.addOrderOfCustomer(daryOrder1, daryOrder2, daroOrder1, daroOrder2);
 
 let chef = new Chef(6, 'dy', Gender.FEMALE, 9875678, 'pp');
 console.log(vyDyRestaurant);
@@ -158,15 +166,9 @@ console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
 console.log(chef.cookFoodFrom(billM.allCustomerOrders, vyDyRestaurant.kitchen));
+
 console.log(billM.getCustomerBill(daro));
 console.log(billM.getCustomerBill(dary));
 console.log(daro.pay(3000, billM.getPriceToPay(daro)));
 console.log(chair1.removeCustomer(daro));
-
-
-
-
-
-
-
-
+console.log(billM.getIncome());

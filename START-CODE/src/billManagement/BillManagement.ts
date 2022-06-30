@@ -15,7 +15,7 @@ export class BillManagement {
         for (let order of this.allCustomerOrders) {
             if (order.customer.isEqual(customer)) {
                 if (order.getStatus() !== OrderStatus.NOT_HAVE) {
-                    bill = bill + ' - ' + order.food.name + ', price: ' + order.food.price + ', quality: ' + order.quaility + ',' + "\n";
+                    bill = bill + ' - ' + order.food.getName() + ', price: ' + order.food.getPrice() + ', quality: ' + order.quaility + ',' + "\n";
                     totalPrice += order.getPrice();
                 }
             }
@@ -33,4 +33,15 @@ export class BillManagement {
         }
         return totalPrice;
     }
+    getIncome() {
+        let totalPrice = 0;
+        for (let order of this.allCustomerOrders) {
+            if (order.getStatus() !== OrderStatus.NOT_HAVE) {
+                totalPrice += order.getPrice();
+            }
+        }
+        return totalPrice;
+    }
+
+
 }   

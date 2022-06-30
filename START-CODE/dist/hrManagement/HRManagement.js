@@ -12,6 +12,12 @@ class HRManagement {
     getCustomers() {
         return this.customers;
     }
+    getNumberOfStaffs() {
+        return this.staffs.length;
+    }
+    getNumberOfCustomers() {
+        return this.customers.length;
+    }
     addStaff(...staff) {
         this.staffs = this.staffs.concat(...staff);
     }

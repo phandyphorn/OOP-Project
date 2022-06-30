@@ -12,6 +12,15 @@ class TableManagement {
         this.tables = this.tables.concat(...table);
     }
     findFreeTable() {
+        for (let table of this.tables) {
+            for (let chair of table.getChair()) {
+                {
+                    if (!chair.hasCustomer()) {
+                        return table;
+                    }
+                }
+            }
+        }
         return undefined;
     }
 }

@@ -2,7 +2,7 @@ import { Customer } from '../hrManagement/customer/Customer';
 export class Chair {
     private customer?: Customer = undefined;
     constructor(
-        id: number
+        public id: number
     ){}
 
     setCustomer(customer: Customer) {

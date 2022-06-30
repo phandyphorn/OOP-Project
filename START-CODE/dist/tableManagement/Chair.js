@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Chair = void 0;
 class Chair {
     constructor(id) {
+        this.id = id;
         this.customer = undefined;
     }
     setCustomer(customer) {

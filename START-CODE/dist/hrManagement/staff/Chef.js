@@ -14,13 +14,13 @@ class Chef extends Staff_1.Staff {
     cookFoodFrom(allOrders, kitchenManagement) {
         for (let i = 0; i < allOrders.length; i++) {
             if (allOrders[i].status == Order_1.OrderStatus.NOT_COMPLETED) {
-                if (allOrders[i].food.category == Food_1.FoodCategory.DESSERT) {
+                if (allOrders[i].food.getCategory() == Food_1.FoodCategory.DESSERT) {
                     for (let j = 0; j < kitchenManagement.desserts.length; j++) {
-                        if (kitchenManagement.desserts[j].name == allOrders[i].food.name) {
-                            if (kitchenManagement.desserts[j].quality >= allOrders[i].quaility) {
+                        if (kitchenManagement.desserts[j].getName() == allOrders[i].food.getName()) {
+                            if (kitchenManagement.desserts[j].getQuality() >= allOrders[i].quaility) {
                                 allOrders[i].addStatus(Order_1.OrderStatus.COMPLETED);
                                 kitchenManagement.desserts[j].decreaseQuality(allOrders[i].quaility);
-                                return new Dessert_1.Dessert(allOrders[i].food.name, allOrders[i].food.price, allOrders[i].quaility);
+                                return new Dessert_1.Dessert(allOrders[i].food.getName(), allOrders[i].food.getPrice(), allOrders[i].quaility);
                             }
                             else {
                                 allOrders[i].addStatus(Order_1.OrderStatus.NOT_HAVE);
@@ -29,13 +29,13 @@ class Chef extends Staff_1.Staff {
                         }
                     }
                 }
-                else if (allOrders[i].food.category == Food_1.FoodCategory.DRINK) {
+                else if (allOrders[i].food.getCategory() == Food_1.FoodCategory.DRINK) {
                     for (let j = 0; j < kitchenManagement.drinks.length; j++) {
-                        if (kitchenManagement.drinks[j].name == allOrders[i].food.name) {
-                            if (kitchenManagement.drinks[j].quality >= allOrders[i].quaility) {
+                        if (kitchenManagement.drinks[j].getName() == allOrders[i].food.getName()) {
+                            if (kitchenManagement.drinks[j].getQuality() >= allOrders[i].quaility) {
                                 allOrders[i].addStatus(Order_1.OrderStatus.COMPLETED);
                                 kitchenManagement.drinks[j].decreaseQuality(allOrders[i].quaility);
-                                return new Drink_1.Drink(allOrders[i].food.name, allOrders[i].food.price, allOrders[i].quaility);
+                                return new Drink_1.Drink(allOrders[i].food.getName(), allOrders[i].food.getPrice(), allOrders[i].quaility);
                             }
                             else {
                                 allOrders[i].addStatus(Order_1.OrderStatus.NOT_HAVE);
@@ -44,13 +44,13 @@ class Chef extends Staff_1.Staff {
                         }
                     }
                 }
-                else if (allOrders[i].food.category == Food_1.FoodCategory.MEAL) {
+                else if (allOrders[i].food.getCategory() == Food_1.FoodCategory.MEAL) {
                     for (let j = 0; j < kitchenManagement.meal.length; j++) {
-                        if (kitchenManagement.meal[j].name == allOrders[i].food.name) {
-                            if (kitchenManagement.meal[j].quality >= allOrders[i].quaility) {
+                        if (kitchenManagement.meal[j].getName() == allOrders[i].food.getName()) {
+                            if (kitchenManagement.meal[j].getQuality() >= allOrders[i].quaility) {
                                 allOrders[i].addStatus(Order_1.OrderStatus.COMPLETED);
                                 kitchenManagement.meal[j].decreaseQuality(allOrders[i].quaility);
-                                return new Meal_1.Meal(allOrders[i].food.name, allOrders[i].food.price, allOrders[i].quaility);
+                                return new Meal_1.Meal(allOrders[i].food.getName(), allOrders[i].food.getPrice(), allOrders[i].quaility);
                             }
                             else {
                                 allOrders[i].addStatus(Order_1.OrderStatus.NOT_HAVE);

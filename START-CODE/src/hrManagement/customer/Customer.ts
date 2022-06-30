@@ -1,11 +1,10 @@
-import { BillManagement } from "../../billManagement/BillManagement";
 import { MenuManager } from "../../menuManagement/MenuManager";
 import { Person, Gender } from "../Person";
 
 export class Customer extends Person{
 
-    menu?: MenuManager;
-    paying: boolean = false;
+    private menu?: MenuManager;
+    private paying: boolean = false;
 
     constructor(id: number, name: string, gender: Gender,phone:number, address:string)
     {

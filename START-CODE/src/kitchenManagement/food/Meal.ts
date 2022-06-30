@@ -6,9 +6,7 @@ export class Meal extends Food {
         name: ItemName,
         price: number,
         quality: number,
-    )
-
-    {
+    ){
         super(name, price, quality, FoodCategory.MEAL);
     }
 
@@ -16,12 +14,5 @@ export class Meal extends Food {
         return this.name == otherMeal.name;
     }
 
-    increaseQuality(moreQuality: number) {
-        this.quality += moreQuality;
-    }
-
-    decreaseQuality(quality: number) {
-        this.quality -= quality;
-    }
 
 }

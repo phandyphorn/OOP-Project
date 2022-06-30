@@ -16,4 +16,5 @@ export class Restaurant {
         private address: string,
         private owner: string
     ){}
+
 }

@@ -19,7 +19,7 @@ class Order {
         this.status = status;
     }
     getPrice() {
-        return this.food.price * this.quaility;
+        return this.food.getPrice() * this.quaility;
     }
     getStatus() {
         return this.status;

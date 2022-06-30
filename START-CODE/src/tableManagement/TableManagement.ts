@@ -11,6 +11,13 @@ export class TableManagement {
     }
 
     findFreeTable(): Table | undefined {
+        for (let table of this.tables) {
+            for (let chair of table.getChair()) {{
+                if (!chair.hasCustomer()) {
+                    return table;
+                }
+            }}
+        }
         return undefined;
     }
 

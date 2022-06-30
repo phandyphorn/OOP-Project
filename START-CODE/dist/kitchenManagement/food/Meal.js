@@ -9,11 +9,5 @@ class Meal extends Food_1.Food {
     isEqual(otherMeal) {
         return this.name == otherMeal.name;
     }
-    increaseQuality(moreQuality) {
-        this.quality += moreQuality;
-    }
-    decreaseQuality(quality) {
-        this.quality -= quality;
-    }
 }
 exports.Meal = Meal;

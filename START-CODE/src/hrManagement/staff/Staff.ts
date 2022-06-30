@@ -5,7 +5,7 @@ export enum StaffCategory {
     WAITER
 }
 export class Staff extends Person {
-    protected salary: number = 0;
+    private salary: number = 0;
     constructor(
         protected staffCategory: StaffCategory, 
         id: number, 
@@ -15,4 +15,14 @@ export class Staff extends Person {
         address: string) {
         super(id, name, gender, phone, address);
     }
+
+    setSalary(salary: number) {
+        this.salary = salary;
+    }
+
+    getSalary() {
+        return this.salary;
+    }
+
+    
 }

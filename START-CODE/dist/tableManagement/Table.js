@@ -12,8 +12,14 @@ class Table {
     getChair() {
         return this.chairs;
     }
-    addChair(...chair) {
-        this.chairs = this.chairs.concat(...chair);
+    addChair(chair) {
+        let maxChair = 4;
+        if (this.chairs.length < maxChair) {
+            this.chairs.push(chair);
+        }
+        else {
+            return 'This table is full, cannot add more chair, Please add to anthor table';
+        }
     }
 }
 exports.Table = Table;

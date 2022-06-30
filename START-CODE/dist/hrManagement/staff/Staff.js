@@ -13,5 +13,11 @@ class Staff extends Person_1.Person {
         this.staffCategory = staffCategory;
         this.salary = 0;
     }
+    setSalary(salary) {
+        this.salary = salary;
+    }
+    getSalary() {
+        return this.salary;
+    }
 }
 exports.Staff = Staff;

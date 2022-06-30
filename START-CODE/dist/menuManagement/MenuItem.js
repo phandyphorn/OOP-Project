@@ -19,5 +19,14 @@ class MenuItem {
     isEqual(item) {
         return this.name == item.name && this.price == item.price && this.category == item.category;
     }
+    getName() {
+        return this.name;
+    }
+    getPrice() {
+        return this.price;
+    }
+    getCategory() {
+        return this.category;
+    }
 }
 exports.MenuItem = MenuItem;

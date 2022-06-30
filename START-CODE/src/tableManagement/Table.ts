@@ -11,7 +11,12 @@ export class Table {
         return this.chairs;
     }
 
-    addChair(...chair: Chair[]) {
-        this.chairs = this.chairs.concat(...chair);
+    addChair(chair: Chair) {
+        let maxChair = 4;
+        if (this.chairs.length < maxChair) {
+            this.chairs.push(chair);
+        }else {
+            return 'This table is full, cannot add more chair, Please add to anthor table';
+        }
     }
 }

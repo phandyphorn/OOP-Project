@@ -6,30 +6,38 @@ export enum FoodCategory {
     DESSERT
 } 
 
-export enum FoodStatus {
-    HAVE,
-    NOTHAVE
-}
-
+/**
+ * Any food in the kitchen - common attributes
+ */
 export abstract class Food {
-    status?: FoodStatus;
     constructor(
-        public name: ItemName, 
-        public price: number, 
-        public quality: number,
-        public foodCategory: FoodCategory,
-    )
-    {}
+        protected name: ItemName, 
+        protected price: number, 
+        protected quality: number,
+        protected foodCategory: FoodCategory
+    ){}
 
-    getPrice(): number{
+    getPrice() {
         return this.price;
     }
 
-
-    addStatus(status: FoodStatus) {
-        this.status = status;
+    getName() {
+        return this.name;
     }
-    getCategory() {
+
+    getQuality() {
+        return this.quality;
+    }
+    
+    getFoodCategory() {
         return this.foodCategory;
+    }
+
+    increaseQuality(moreQuality: number) {
+        this.quality += moreQuality;
+    }
+    
+    decreaseQuality(quality: number) {
+        this.quality -= quality;
     }
 }
